@@ -1,7 +1,8 @@
-import React from 'react'
+import Header from 'components/Header';
+import React from 'react';
 
 export default function Homepage() {
   return (
-    <h1>Homepage</h1>
-  )
+    <Header />
+  );
 }
