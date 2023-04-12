@@ -16,7 +16,13 @@
     "plugins": [
         "react"
     ],
-    "rules": {
-        "commonjs": false
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "moduleDirectory": ["node_modules", "src/"]
+            }
+        }
+    },
+    "rules": {        
     }
 }
