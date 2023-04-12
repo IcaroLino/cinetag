@@ -17,6 +17,6 @@
         "react"
     ],
     "rules": {
-        "commonjs": "false"
+        "commonjs": false
     }
 }
