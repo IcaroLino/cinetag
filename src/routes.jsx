@@ -1,6 +1,7 @@
 import Container from 'components/Container';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import FavoriteProvider from 'context/Favorite';
 import Favorites from 'pages/Favorites';
 import Homepage from 'pages/Homepage';
 import React from 'react';
@@ -11,10 +12,12 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Header />
       <Container>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/favoritos" element={<Favorites />} />
-        </Routes>
+        <FavoriteProvider>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/favoritos" element={<Favorites />} />
+          </Routes>
+        </FavoriteProvider>
       </Container>
       <Footer />
     </BrowserRouter>
