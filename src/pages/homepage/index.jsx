@@ -11,7 +11,9 @@ export default function Homepage() {
       <Banner image="home" />
       <Title><h1>Um lugar para guardar seus vídeos e filmes!</h1></Title>
       <section className={styles.container}>
-        {videos.map((video) => <Card id={video.id} title={video.title} cover={video.cover} />)}
+        {videos.map((video) => {
+          return <Card key={video.id} id={video.id} title={video.title} cover={video.cover} />;
+        })}
       </section>
     </>
   );

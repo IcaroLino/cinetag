@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import Banner from 'components/Banner';
 import Card from 'components/Card';
 import Title from 'components/Title';
@@ -14,7 +15,9 @@ export default function Favorites() {
         <h1>Meus Favoritos</h1>
       </Title>
       <section className={styles.container}>
-        {favorites.map((fav) => <Card id={fav.id} title={fav.title} cover={fav.cover} />)}
+        {favorites.map((fav) => {
+          return <Card key={fav.id} id={fav.id} title={fav.title} cover={fav.cover} />;
+        })}
       </section>
     </>
   );
