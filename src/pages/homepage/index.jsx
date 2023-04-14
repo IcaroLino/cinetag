@@ -1,11 +1,18 @@
 import Banner from 'components/Banner';
 import Card from 'components/Card';
 import Title from 'components/Title';
-import React from 'react';
-import videos from 'json/db.json';
+import React, { useEffect, useState } from 'react';
 import styles from './Homepage.module.css';
 
 export default function Homepage() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/IcaroLino/cinetag-api/videos')
+      .then((res) => res.json())
+      .then((data) => setVideos(data));
+  });
+
   return (
     <>
       <Banner image="home" />

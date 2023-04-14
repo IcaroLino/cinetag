@@ -1,14 +1,19 @@
 import Banner from 'components/Banner';
 import Title from 'components/Title';
-import React from 'react';
-import videos from 'json/db.json';
+import React, { useEffect, useState } from 'react';
 import NotFound from 'pages/NotFound';
 import { useParams } from 'react-router-dom';
 import styles from './Player.module.css';
 
 export default function Player() {
+  const [video, setVideo] = useState();
   const param = useParams();
-  const video = videos.find((vid) => vid.id === Number(param.id));
+
+  useEffect(() => {
+    fetch(`https://my-json-server.typicode.com/IcaroLino/cinetag-api/videos?id=${param.id}`)
+      .then((res) => res.json())
+      .then((vid) => setVideo(...vid));
+  });
 
   if (!video) return <NotFound />;
 
