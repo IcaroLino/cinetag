@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import Banner from 'components/Banner';
 import Card from 'components/Card';
 import Title from 'components/Title';
