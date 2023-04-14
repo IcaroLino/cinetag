@@ -1,7 +1,6 @@
-import Container from 'components/Container';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import FavoriteProvider from 'context/Favorite';
+import DefaultPage from 'pages/DefaultPage';
 import Favorites from 'pages/Favorites';
 import Homepage from 'pages/Homepage';
 import NotFound from 'pages/NotFound';
@@ -13,16 +12,17 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Header />
-      <Container>
-        <FavoriteProvider>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/favoritos" element={<Favorites />} />
-            <Route path="/player/:id" element={<Player />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </FavoriteProvider>
-      </Container>
+
+      <Routes>
+        <Route path="/" element={<DefaultPage />}>
+          <Route index element={<Homepage />} />
+          <Route path="favoritos" element={<Favorites />} />
+          <Route path="player/:id" element={<Player />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
       <Footer />
     </BrowserRouter>
   );
